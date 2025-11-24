@@ -58,17 +58,17 @@ function generateResponse(message) {
   const msg = message.toLowerCase()
   
   // Greetings
-  if (msg.match(/^(hi|hello|hey|good morning|good afternoon|good evening)/)) {
-    return `Hello! I'm Sifat's AI assistant. I can help you learn about Sifat's skills, projects, and experience. What would you like to know?`
+  if (msg.match(/^(hi|hello|hey|good morning|good afternoon|good evening|hola|namaste)/)) {
+    return `Hello! 👋 I'm Sifat's AI assistant. I can help you with:\n\n💰 Pricing & Costs\n⏱️ Project Timeline\n🚀 How to Get Started\n📋 What Information Needed\n💳 Payment Terms\n🔄 Revisions & Changes\n⚡ Rush Delivery\n🎨 Portfolio Examples\n\nWhat would you like to know?`
   }
   
   // Who/About
-  if (msg.match(/who are you|about you|tell me about|introduce/)) {
+  if (msg.match(/who are you|about you|tell me about|introduce|who is sifat/)) {
     return `I'm ${KNOWLEDGE_BASE.name}, a ${KNOWLEDGE_BASE.role} from ${KNOWLEDGE_BASE.location}. I specialize in building full-stack web applications using the MERN stack. I graduated with a BSc in Software Engineering from DIU with a CGPA of 3.25.`
   }
   
   // Skills
-  if (msg.match(/skills|technologies|tech stack|what do you know|programming/)) {
+  if (msg.match(/skills|technologies|tech stack|what do you know|programming|languages|frameworks/)) {
     return `My technical skills include: ${KNOWLEDGE_BASE.skills.slice(0, 8).join(', ')}, and more. I'm proficient in both frontend and backend development, with expertise in building scalable web applications.`
   }
   
@@ -97,13 +97,13 @@ function generateResponse(message) {
     return `I'm currently working as a ${exp.title} at ${exp.company} since 2023. My responsibilities include ${exp.responsibilities}.`
   }
   
-  // Pricing & Project Costs
-  if (msg.match(/price|cost|pricing|how much|budget|rate|charge|fee|payment/)) {
+  // Pricing & Project Costs - EXPANDED KEYWORDS
+  if (msg.match(/price|cost|pricing|how much|budget|rate|charge|fee|payment|money|expensive|cheap|afford|quote|estimate/)) {
     return `My project pricing depends on complexity and requirements:\n\n🌐 Business Website: ৳50,000 - ৳1,00,000 (2-4 weeks)\n• Portfolio, corporate site, landing pages\n• Responsive design, SEO optimized\n\n🛒 E-Commerce Platform: ৳1,50,000 - ৳3,50,000 (4-8 weeks)\n• Full online store with payment gateway\n• Admin dashboard, inventory management\n\n⚙️ Custom Web Application: ৳2,00,000 - ৳5,00,000+ (6-12 weeks)\n• Complex features, real-time functionality\n• API integrations, custom workflows\n\n💰 Hourly Rate: ৳2,000/hour\n\nFinal pricing is determined after understanding your specific needs. Let's discuss your project! Contact: ${KNOWLEDGE_BASE.email}`
   }
   
-  // Timeline & Delivery
-  if (msg.match(/timeline|time|duration|how long|when|delivery|deadline/)) {
+  // Timeline & Delivery - EXPANDED KEYWORDS
+  if (msg.match(/timeline|time|duration|how long|when|delivery|deadline|fast|quickly|speed|days|weeks|months/)) {
     return `Project timelines vary based on complexity:\n\n⏱️ Business Website: 2-4 weeks\n⏱️ E-Commerce: 4-8 weeks\n⏱️ Custom Application: 6-12 weeks\n\nI work in agile sprints with weekly updates. Rush delivery available for 30% extra. I provide regular demos and ensure timely delivery. Need it faster? Let's discuss your deadline! 🚀`
   }
   
@@ -216,8 +216,8 @@ function generateResponse(message) {
     return `Goodbye! Thanks for your interest in Sifat's portfolio. Feel free to reach out anytime at ${KNOWLEDGE_BASE.email}. Have a great day! 👋`
   }
   
-  // Default
-  return `I can help you with information about Sifat's:\n• Skills & Technologies\n• Projects & Portfolio\n• Work Experience\n• Education\n• Contact Information\n\nWhat would you like to know?`
+  // Default - MORE HELPFUL
+  return `I can help you with:\n\n💰 **Pricing**: "How much for a website?"\n⏱️ **Timeline**: "How long does it take?"\n🚀 **Get Started**: "How do I begin?"\n📋 **Requirements**: "What info do you need?"\n💳 **Payment**: "Payment terms?"\n🔄 **Changes**: "Can I request revisions?"\n⚡ **Rush**: "I need this urgently"\n🎨 **Examples**: "Show me your work"\n📞 **Contact**: "How to reach you?"\n\nJust type your question naturally! For example: "How much for an e-commerce site?" or "Can you build it in 2 weeks?" 😊`
 }
 
 export default function ChatBot() {
