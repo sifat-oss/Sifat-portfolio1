@@ -27,9 +27,9 @@ export default function ContactForm(){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          service_id: 'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-          template_id: 'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-          user_id: 'YOUR_PUBLIC_KEY', // Replace with your EmailJS public key
+          service_id: 'service_gezqkli', // Your EmailJS service ID
+          template_id: '19je095', // Your EmailJS template ID
+          user_id: 'WyNeBbSvohX6vVjqM', // Your EmailJS public key
           template_params: {
             from_name: formData.name,
             from_email: formData.email,
