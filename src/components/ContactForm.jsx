@@ -20,33 +20,35 @@ export default function ContactForm(){
     setIsSubmitting(true)
     
     try {
-      // Send to EmailJS (Free email service - you need to set this up)
+      // Send to EmailJS
       const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          service_id: 'service_gezqkli', // Your EmailJS service ID
-          template_id: '19je095', // Your EmailJS template ID
-          user_id: 'WyNeBbSvohX6vVjqM', // Your EmailJS public key
+          service_id: 'service_gezqkli',
+          template_id: '19je095',
+          user_id: 'WyNeBbSvohX6vVjqM',
           template_params: {
             from_name: formData.name,
             from_email: formData.email,
             subject: formData.subject,
-            message: formData.message,
-            to_email: 'mdsifatss79@gmail.com' // Your email
+            message: formData.message
           }
         })
       })
 
+      const result = await response.text()
+      
       if (response.ok) {
-        // Also save to local storage as backup
+        // Save to local storage as backup
         const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
         submissions.push({
           ...formData,
           timestamp: new Date().toISOString(),
-          id: Date.now()
+          id: Date.now(),
+          status: 'sent'
         })
         localStorage.setItem('contactSubmissions', JSON.stringify(submissions))
         
@@ -56,31 +58,24 @@ export default function ContactForm(){
         // Show success for 5 seconds
         setTimeout(() => setSubmitStatus(null), 5000)
       } else {
-        throw new Error('Failed to send')
+        console.error('EmailJS Error:', result)
+        throw new Error(`EmailJS failed: ${result}`)
       }
     } catch (error) {
       console.error('Error sending message:', error)
       
-      // Fallback: Save to localStorage even if email fails
+      // Save to localStorage as backup
       const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
       submissions.push({
         ...formData,
         timestamp: new Date().toISOString(),
         id: Date.now(),
-        status: 'pending'
+        status: 'failed'
       })
       localStorage.setItem('contactSubmissions', JSON.stringify(submissions))
       
-      // Create mailto link as fallback
-      const mailtoLink = `mailto:mdsifatss79@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`
-      
-      setSubmitStatus('fallback')
-      // Open email client after a short delay
-      setTimeout(() => {
-        window.location.href = mailtoLink
-      }, 1000)
+      setSubmitStatus('error')
+      alert('Failed to send message. Please check:\n1. Your EmailJS template is set up correctly\n2. Template ID matches: 19je095\n3. Service ID matches: service_gezqkli\n\nYour message was saved locally. You can view it in Admin Messages.')
     } finally {
       setIsSubmitting(false)
     }
@@ -188,13 +183,13 @@ export default function ContactForm(){
           </motion.div>
         )}
         
-        {submitStatus === 'fallback' && (
+        {submitStatus === 'error' && (
           <motion.div
             initial={{opacity:0, x:-10}}
             animate={{opacity:1, x:0}}
-            className="flex items-center gap-2 text-yellow-500 font-medium text-sm"
+            className="flex items-center gap-2 text-red-500 font-medium text-sm"
           >
-            <span>📧</span> Opening your email client...
+            <span>⚠️</span> Failed to send. Check console for details.
           </motion.div>
         )}
       </div>
