@@ -62,39 +62,80 @@ function generateResponse(message) {
     return `Hello! 👋 I'm Sifat's AI assistant. I can help you with:\n\n💰 Pricing & Costs\n⏱️ Project Timeline\n🚀 How to Get Started\n📋 What Information Needed\n💳 Payment Terms\n🔄 Revisions & Changes\n⚡ Rush Delivery\n🎨 Portfolio Examples\n\nWhat would you like to know?`
   }
   
-  // Who/About
-  if (msg.match(/who are you|about you|tell me about|introduce|who is sifat/)) {
-    return `I'm ${KNOWLEDGE_BASE.name}, a ${KNOWLEDGE_BASE.role} from ${KNOWLEDGE_BASE.location}. I specialize in building full-stack web applications using the MERN stack. I graduated with a BSc in Software Engineering from DIU with a CGPA of 3.25.`
+  // Who/About - EXPANDED
+  if (msg.match(/who are you|about|tell me about|introduce|who is sifat|sifat|yourself|bio|background/)) {
+    return `I'm ${KNOWLEDGE_BASE.name}, a ${KNOWLEDGE_BASE.role} from ${KNOWLEDGE_BASE.location}.\n\n🎓 Education: ${KNOWLEDGE_BASE.education}\n💼 Currently: ${KNOWLEDGE_BASE.experience[0].title} at ${KNOWLEDGE_BASE.experience[0].company}\n\nI specialize in building full-stack web applications using the MERN stack. I've successfully delivered e-commerce platforms, mobile apps, and custom web solutions for clients.\n\nWhat else would you like to know?`
   }
   
-  // Skills
-  if (msg.match(/skills|technologies|tech stack|what do you know|programming|languages|frameworks/)) {
-    return `My technical skills include: ${KNOWLEDGE_BASE.skills.slice(0, 8).join(', ')}, and more. I'm proficient in both frontend and backend development, with expertise in building scalable web applications.`
+  // Skills - EXPANDED
+  if (msg.match(/skills|technologies|tech stack|what do you know|programming|languages|frameworks|tools|expertise|capable/)) {
+    return `My technical expertise:\n\n💻 **Core Stack**:\n${KNOWLEDGE_BASE.skills.slice(0, 6).join(' • ')}\n\n🛠️ **Additional**:\n${KNOWLEDGE_BASE.skills.slice(6).join(' • ')}\n\n✨ **Specialties**:\n• Full-stack MERN development\n• E-commerce platforms\n• Mobile app development (Flutter)\n• RESTful APIs & Authentication\n• Database design & optimization\n• Payment gateway integration\n\nI can build scalable, modern web applications from scratch!`
   }
   
-  // Projects
-  if (msg.match(/projects|portfolio|work|built|developed/)) {
-    const projectList = KNOWLEDGE_BASE.projects.slice(0, 3).map(p => 
-      `• ${p.name}: ${p.description}`
-    ).join('\n')
-    return `Here are some of my key projects:\n\n${projectList}\n\nYou can explore all my projects in the Projects section!`
+  // Projects - EXPANDED
+  if (msg.match(/projects|portfolio|work|built|developed|created|made|examples|showcase/)) {
+    const projectList = KNOWLEDGE_BASE.projects.map((p, i) => 
+      `${i+1}. ${p.name}\n   ${p.description}\n   Tech: ${p.tech.slice(0, 4).join(', ')}`
+    ).join('\n\n')
+    return `Here are my featured projects:\n\n${projectList}\n\n🌐 View all projects: ${KNOWLEDGE_BASE.portfolio}\n\nWant to know more about any specific project?`
   }
   
-  // Specific project
-  if (msg.match(/cyclezen/)) {
+  // Specific project - CycleZen
+  if (msg.match(/cyclezen|cycle zen|bicycle/)) {
     const project = KNOWLEDGE_BASE.projects[0]
-    return `${project.name} is ${project.description}. Built with ${project.tech.join(', ')}. It features product catalog, shopping cart, user authentication, and admin dashboard.`
+    return `🚴 ${project.name}:\n\n${project.description}\n\n✨ Features:\n• Product catalog with categories\n• Shopping cart & wishlist\n• User authentication (JWT)\n• Admin dashboard for inventory\n• Responsive design\n\n💻 Tech Stack: ${project.tech.join(', ')}\n\nCheck it out in my portfolio!`
   }
   
-  if (msg.match(/sarisabari|tottho seba/)) {
+  // Sarisabari app
+  if (msg.match(/sarisabari|tottho seba|mobile app/)) {
     const project = KNOWLEDGE_BASE.projects[1]
-    return `${project.name} is ${project.description}. Built with ${project.tech.join(', ')}. This mobile app helps the local community access essential services easily.`
+    return `📱 ${project.name}:\n\n${project.description}\n\n✨ Features:\n• Hospital & emergency services directory\n• Police station locator\n• Fire station information\n• Digital GD filing system\n• Google Maps integration\n• Push notifications\n\n💻 Tech Stack: ${project.tech.join(', ')}\n\nBuilt to help the local community access essential services!`
   }
   
-  // Experience
-  if (msg.match(/experience|job|work experience|current work|working/)) {
+  // Experience - EXPANDED
+  if (msg.match(/experience|job|work experience|current work|working|employment|career/)) {
     const exp = KNOWLEDGE_BASE.experience[0]
-    return `I'm currently working as a ${exp.title} at ${exp.company} since 2023. My responsibilities include ${exp.responsibilities}.`
+    return `💼 **Current Position**:\n${exp.title}\n📍 ${exp.company}\n📅 ${exp.duration}\n\n🔧 Responsibilities:\n• ${exp.responsibilities}\n• Database management\n• Technical troubleshooting\n• Client communication\n\n🚀 **Freelance Projects**:\nI also work on freelance web development projects, specializing in:\n• E-commerce platforms\n• Business websites\n• Custom web applications\n• Mobile apps\n\nI'm available for both full-time opportunities and freelance work!`
+  }
+  
+  // Education
+  if (msg.match(/education|university|study|degree|cgpa|college|academic|qualification/)) {
+    return `🎓 **Education**:\n\n• ${KNOWLEDGE_BASE.education}\n• HSC: GPA 4.67\n• SSC: GPA 4.89\n\n📚 **Relevant Coursework**:\n• Data Structures & Algorithms\n• Database Management Systems\n• Web Technologies\n• Software Engineering\n• Mobile App Development\n\nI combine academic knowledge with practical hands-on experience!`
+  }
+  
+  // Location
+  if (msg.match(/location|where|based|from|live|address|city/)) {
+    return `📍 I'm based in ${KNOWLEDGE_BASE.location}.\n\n💼 **Work Preferences**:\n• Open to remote opportunities\n• Available for on-site work in Dhaka area\n• Flexible with time zones for international projects\n\nCurrently available for both local and international projects!`
+  }
+  
+  // React/Frontend
+  if (msg.match(/react|frontend|ui|ux|design|interface|tailwind|css/)) {
+    return `🎨 **Frontend Expertise**:\n\n✓ React.js (Hooks, Context, Redux)\n✓ TypeScript for type safety\n✓ Tailwind CSS for modern styling\n✓ Framer Motion for animations\n✓ Responsive design (mobile-first)\n✓ SEO optimization\n✓ Performance optimization\n\nI create beautiful, fast, and user-friendly interfaces that convert visitors into customers!`
+  }
+  
+  // Node/Backend
+  if (msg.match(/node|backend|api|server|express|database/)) {
+    return `⚙️ **Backend Expertise**:\n\n✓ Node.js & Express.js\n✓ RESTful API design\n✓ MongoDB & Mongoose\n✓ JWT Authentication\n✓ Password encryption (bcrypt)\n✓ File uploads & processing\n✓ Real-time features (Socket.io)\n✓ Third-party API integration\n\nI build secure, scalable backend systems that handle complex business logic!`
+  }
+  
+  // MongoDB/Database
+  if (msg.match(/mongodb|database|db|data|storage/)) {
+    return `🗄️ **Database Skills**:\n\n✓ MongoDB schema design\n✓ Complex queries & aggregation\n✓ Indexing for performance\n✓ Data relationships & population\n✓ Database optimization\n✓ Backup & recovery strategies\n\nI design efficient database structures that scale with your business!`
+  }
+  
+  // Mobile Development
+  if (msg.match(/mobile|flutter|dart|app|android|ios/)) {
+    return `📱 **Mobile Development**:\n\n✓ Flutter framework\n✓ Dart programming\n✓ Cross-platform (Android & iOS)\n✓ Native features integration\n✓ Maps & location services\n✓ Push notifications\n✓ State management\n\nI build beautiful mobile apps that work seamlessly on both platforms!`
+  }
+  
+  // Availability
+  if (msg.match(/available|hiring|job|opportunity|freelance|full time|part time/)) {
+    return `✅ **I'm Available!**\n\n💼 **Open to**:\n• Full-time positions (Remote/On-site in Dhaka)\n• Freelance projects\n• Contract work\n• Long-term partnerships\n\n⏰ **Response Time**: 2-4 hours\n📅 **Start Date**: Immediate or as per your timeline\n\n📧 Contact: ${KNOWLEDGE_BASE.email}\n📱 Phone: ${KNOWLEDGE_BASE.phone}\n\nLet's discuss your project!`
+  }
+  
+  // GitHub/LinkedIn
+  if (msg.match(/github|code|repository|git|linkedin|social|profile/)) {
+    return `🔗 **Find Me Online**:\n\n💼 LinkedIn: ${KNOWLEDGE_BASE.linkedin}\n👨‍💻 GitHub: ${KNOWLEDGE_BASE.github}\n🌐 Portfolio: ${KNOWLEDGE_BASE.portfolio}\n\n📧 Email: ${KNOWLEDGE_BASE.email}\n📱 Phone: ${KNOWLEDGE_BASE.phone}\n\nCheck out my code, projects, and professional profile!`
   }
   
   // Pricing & Project Costs - EXPANDED KEYWORDS
