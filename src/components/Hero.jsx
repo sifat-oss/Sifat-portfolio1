@@ -20,7 +20,7 @@ export default function Hero(){
             transition={{duration:0.8}}
             className="inline-block"
           >
-            <span className="px-3 py-1.5 bg-accent/20 text-accent rounded-full text-xs font-semibold border border-accent/30">
+            <span className="px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-semibold border border-accent/30">
               👋 Welcome to my portfolio
             </span>
           </motion.div>
@@ -29,7 +29,7 @@ export default function Hero(){
             initial={{opacity:0, y:30}}
             animate={{opacity:1, y:0}}
             transition={{duration:0.8, delay:0.1}}
-            className="text-3xl md:text-4xl font-black leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight"
           >
             Hi, I'm{' '}
             <span className="bg-gradient-to-r from-accent via-cyan-400 to-gold bg-clip-text text-transparent animate-gradient-x">
@@ -43,10 +43,10 @@ export default function Hero(){
             transition={{duration:0.8, delay:0.2}}
             className="space-y-2"
           >
-            <p className="text-lg md:text-xl font-bold text-white">
+            <p className="text-2xl md:text-3xl font-bold text-white">
               MERN Stack Developer
             </p>
-            <p className="text-sm text-white/80 leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-xl">
               I build professional websites and web applications for businesses. From e-commerce stores 
               to custom web solutions - quality work at affordable prices. <span className="text-accent font-semibold">Starting at ৳15,000</span>
             </p>
@@ -59,12 +59,12 @@ export default function Hero(){
             className="flex flex-wrap gap-4 items-center"
           >
             <motion.div whileHover={{scale:1.08, y:-2}} whileTap={{scale:0.95}}>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-accent to-cyan-500 text-navy font-semibold hover:shadow-2xl hover:shadow-accent/50 transition-all text-sm">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-accent to-cyan-500 text-navy font-semibold hover:shadow-2xl hover:shadow-accent/50 transition-all text-base">
                 <span>💰</span> Get a Quote
               </Link>
             </motion.div>
             <motion.div whileHover={{scale:1.08, y:-2}} whileTap={{scale:0.95}}>
-              <Link to="/projects" className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border-2 border-accent text-accent hover:bg-accent hover:text-navy transition-all font-semibold text-sm backdrop-blur-sm">
+              <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-accent text-accent hover:bg-accent hover:text-navy transition-all font-semibold text-base backdrop-blur-sm">
                 <span>🚀</span> View Projects
               </Link>
             </motion.div>
@@ -77,16 +77,16 @@ export default function Hero(){
             className="flex flex-wrap gap-6 items-center pt-4"
           >
             <div className="flex items-center gap-2 text-white/70">
-              <span className="text-gold text-xl">💰</span>
-              <span className="text-sm">Affordable Prices</span>
+              <span className="text-gold text-2xl">💰</span>
+              <span className="text-base">Affordable Prices</span>
             </div>
             <div className="flex items-center gap-2 text-white/70">
-              <span className="text-green-400 text-xl">✓</span>
-              <span className="text-sm">Professional Work</span>
+              <span className="text-green-400 text-2xl">✓</span>
+              <span className="text-base">Professional Work</span>
             </div>
             <div className="flex items-center gap-2 text-white/70">
-              <span className="text-accent text-xl">⚡</span>
-              <span className="text-sm">Fast Delivery</span>
+              <span className="text-accent text-2xl">⚡</span>
+              <span className="text-base">Fast Delivery</span>
             </div>
           </motion.div>
         </div>
@@ -102,28 +102,28 @@ export default function Hero(){
             <motion.div
               animate={{y: [-10, 10, -10]}}
               transition={{duration: 3, repeat: Infinity}}
-              className="absolute -top-6 -left-6 bg-gradient-to-br from-blue-500 to-cyan-500 text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-lg z-10"
+              className="absolute -top-6 -left-6 bg-gradient-to-br from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg z-10"
             >
               React.js
             </motion.div>
             <motion.div
               animate={{y: [10, -10, 10]}}
               transition={{duration: 3.5, repeat: Infinity}}
-              className="absolute -bottom-4 -left-8 bg-gradient-to-br from-green-500 to-emerald-500 text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-lg z-10"
+              className="absolute -bottom-4 -left-8 bg-gradient-to-br from-green-500 to-emerald-500 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg z-10"
             >
               Node.js
             </motion.div>
             <motion.div
               animate={{y: [-15, 15, -15]}}
               transition={{duration: 4, repeat: Infinity}}
-              className="absolute -top-4 -right-8 bg-gradient-to-br from-purple-500 to-pink-500 text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-lg z-10"
+              className="absolute -top-4 -right-8 bg-gradient-to-br from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg z-10"
             >
               MongoDB
             </motion.div>
             <motion.div
               animate={{y: [15, -15, 15]}}
               transition={{duration: 3.2, repeat: Infinity}}
-              className="absolute -bottom-6 -right-6 bg-gradient-to-br from-orange-500 to-red-500 text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-lg z-10"
+              className="absolute -bottom-6 -right-6 bg-gradient-to-br from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg z-10"
             >
               Express.js
             </motion.div>
