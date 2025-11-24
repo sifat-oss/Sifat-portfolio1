@@ -86,7 +86,7 @@ npm run deploy
 ## 🔗 Connect With Me
 
 - **Email**: mdsifatss79@gmail.com
-- **Phone**: +880 1609084651
+- **Phone**: +880 1964992612
 - **LinkedIn**: [md-sifat-hossain-4854a0244](https://www.linkedin.com/in/md-sifat-hossain-4854a0244/)
 - **GitHub**: [sifat-oss](https://github.com/sifat-oss)
 

@@ -31,8 +31,8 @@ export default function ContactForm(){
         'service_gezqkli',    // Service ID
         'template_e0wd6fp',   // Template ID
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,           // Changed from from_name to name
+          email: formData.email,         // Changed from from_email to email
           subject: formData.subject,
           message: formData.message
         }
