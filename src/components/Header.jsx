@@ -8,7 +8,7 @@ export default function Header(){
         <Link to="/" className="flex items-center gap-2 group">
           <div className="relative">
             <img 
-              src="/profile.jpg" 
+              src={`${import.meta.env.BASE_URL}profile.jpg`}
               alt="Sifat"
               className="w-9 h-9 rounded-lg object-cover shadow-lg group-hover:shadow-accent/50 transition-all group-hover:scale-110 border-2 border-accent/30"
               onError={(e) => {

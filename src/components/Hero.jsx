@@ -131,7 +131,7 @@ export default function Hero(){
             {/* Main Profile Image */}
             <div className="relative w-64 h-80 lg:w-72 lg:h-[22rem] rounded-2xl overflow-hidden border-4 border-accent/40 shadow-2xl shadow-accent/30 group-hover:shadow-accent/60 transition-all duration-500 group-hover:scale-105 animate-float bg-gradient-to-br from-navy-2 to-navy">
               <img 
-                src="/profile.jpg" 
+                src={`${import.meta.env.BASE_URL}profile.jpg`}
                 alt="Md Sifat Hossain - MERN Stack Developer"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 onError={(e) => {

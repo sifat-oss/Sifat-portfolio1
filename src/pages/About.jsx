@@ -79,7 +79,7 @@ export default function About(){
         <div className="inline-block mb-6">
           <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-accent/40 shadow-xl shadow-accent/20">
             <img 
-              src="/profile.jpg" 
+              src={`${import.meta.env.BASE_URL}profile.jpg`}
               alt="Sifat"
               className="w-full h-full object-cover"
               onError={(e) => {
