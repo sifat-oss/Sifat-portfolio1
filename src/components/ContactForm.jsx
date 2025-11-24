@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 
@@ -12,6 +12,11 @@ export default function ContactForm(){
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
 
+  // Initialize EmailJS with your public key
+  useEffect(() => {
+    emailjs.init('WyNeBbSvohX6vVjqM')
+  }, [])
+
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
@@ -22,18 +27,18 @@ export default function ContactForm(){
     
     try {
       // Send email using EmailJS SDK
-      await emailjs.send(
+      const result = await emailjs.send(
         'service_gezqkli',    // Service ID
         '19je095',             // Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
-          message: formData.message,
-          to_email: 'mdsifatss79@gmail.com'
-        },
-        'WyNeBbSvohX6vVjqM'   // Public Key
+          message: formData.message
+        }
       )
+
+      console.log('EmailJS Success:', result)
 
       // Save to local storage as backup
       const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
