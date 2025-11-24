@@ -8,7 +8,7 @@ import SkillBar from '../components/SkillBar'
 const PROJECTS = [
   {
     id:'cyclezen', 
-    title:'CycleZen', 
+    title:'BiCycle Hub', 
     description:'Full-stack e-commerce platform for bicycles with product listing, shopping cart, user authentication, backend with Node.js & MongoDB.', 
     tech:['React','Node.js','MongoDB','Express'],
     imageUrl: 'https://images.unsplash.com/photo-1571333250630-f0230c320b6d?w=800&q=80',

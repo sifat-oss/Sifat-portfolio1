@@ -13,7 +13,7 @@ const resumeData = {
     github: 'github.com/sifat-oss'
   },
   
-  summary: 'I am a Software Engineering student at Daffodil International University with a strong foundation in front-end development, data analysis, and project management. I have hands-on experience working on projects like CycleZen, where I applied my technical skills to build user-centric solutions. Additionally, my role as a Website Data Analyst at Ranstech Solutions helped me refine my problem-solving abilities and enhance my collaboration skills. Passionate about technology, I aspire to contribute to innovative digital projects and grow into a leadership role in the tech industry.',
+  summary: 'I am a Software Engineering student at Daffodil International University with a strong foundation in front-end development, data analysis, and project management. I have hands-on experience working on projects like BiCycle Hub, where I applied my technical skills to build user-centric solutions. Additionally, my role as a Website Data Analyst at Ranstech Solutions helped me refine my problem-solving abilities and enhance my collaboration skills. Passionate about technology, I aspire to contribute to innovative digital projects and grow into a leadership role in the tech industry.',
 
   education: [
     {
@@ -69,7 +69,7 @@ const resumeData = {
 
   projects: [
     {
-      name: 'CycleZen – Bicycle E-Shop',
+      name: 'BiCycle Hub – Bicycle E-Shop',
       tech: 'React.js, Node.js, Express.js, MongoDB, Tailwind CSS',
       period: 'Jan 2025 - May 2025',
       role: 'Front-End Developer',
@@ -107,7 +107,7 @@ const resumeData = {
       role: 'Developer',
       link: 'Project Link',
       description: [
-        'Created a personal portfolio website to showcase projects like CycleZen, Sifat E-Commerce, and Sarisabari Tottho Seba',
+        'Created a personal portfolio website to showcase projects like BiCycle Hub, Sifat E-Commerce, and Sarisabari Tottho Seba',
         'Highlighting front-end skills and focus on user-centered, real-world solutions'
       ]
     }

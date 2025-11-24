@@ -23,7 +23,7 @@ const KNOWLEDGE_BASE = {
   
   projects: [
     {
-      name: "CycleZen",
+      name: "BiCycle Hub",
       description: "E-commerce platform for bicycle enthusiasts with shopping cart, authentication, and admin dashboard",
       tech: ["React.js", "Node.js", "MongoDB", "Express.js", "JWT", "Tailwind CSS"]
     },
@@ -80,8 +80,8 @@ function generateResponse(message) {
     return `Here are my featured projects:\n\n${projectList}\n\n🌐 View all projects: ${KNOWLEDGE_BASE.portfolio}\n\nWant to know more about any specific project?`
   }
   
-  // Specific project - CycleZen
-  if (msg.match(/cyclezen|cycle zen|bicycle/)) {
+  // Specific project - BiCycle Hub
+  if (msg.match(/bicycle hub|bicyclehub|cycle hub|bicycle shop|bike shop/)) {
     const project = KNOWLEDGE_BASE.projects[0]
     return `🚴 ${project.name}:\n\n${project.description}\n\n✨ Features:\n• Product catalog with categories\n• Shopping cart & wishlist\n• User authentication (JWT)\n• Admin dashboard for inventory\n• Responsive design\n\n💻 Tech Stack: ${project.tech.join(', ')}\n\nCheck it out in my portfolio!`
   }
@@ -205,7 +205,7 @@ function generateResponse(message) {
   
   // Similar Projects / Portfolio Examples
   if (msg.match(/similar project|portfolio|previous work|examples|sample|show me/)) {
-    return `I've built diverse projects! Here are some examples:\n\n🛒 **E-Commerce**:\n• CycleZen: Bicycle shop with cart, auth, admin panel\n• Sifat E-Commerce: Multi-vendor marketplace\n• Payment: Stripe, bKash, SSLCommerz integrated\n\n📱 **Mobile App**:\n• Sarisabari Tottho Seba: Local services app (Flutter)\n• Real-time maps, push notifications\n\n🎓 **Custom Platform**:\n• CampusCart: Student marketplace\n• Real-time chat (Socket.io)\n\nVisit my portfolio to see live demos and code: ${KNOWLEDGE_BASE.portfolio}\n\nI can build something similar to what you have in mind! What type of project interests you? 🎨`
+    return `I've built diverse projects! Here are some examples:\n\n🛒 **E-Commerce**:\n• BiCycle Hub: Bicycle shop with cart, auth, admin panel\n• Sifat E-Commerce: Multi-vendor marketplace\n• Payment: Stripe, bKash, SSLCommerz integrated\n\n📱 **Mobile App**:\n• Sarisabari Tottho Seba: Local services app (Flutter)\n• Real-time maps, push notifications\n\n🎓 **Custom Platform**:\n• CampusCart: Student marketplace\n• Real-time chat (Socket.io)\n\nVisit my portfolio to see live demos and code: ${KNOWLEDGE_BASE.portfolio}\n\nI can build something similar to what you have in mind! What type of project interests you? 🎨`
   }
   
   // Competitor Comparison

@@ -6,7 +6,7 @@ import ProjectModal from '../components/ProjectModal'
 const ALL_PROJECTS = [
   {
     id: 'cyclezen',
-    title: 'CycleZen',
+    title: 'BiCycle Hub',
     description: 'A comprehensive e-commerce platform designed specifically for bicycle enthusiasts. Features a modern, responsive interface with complete shopping functionality including product browsing, cart management, and secure checkout process.',
     role: 'Full-Stack Developer',
     features: [

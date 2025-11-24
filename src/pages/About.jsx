@@ -20,7 +20,7 @@ const journey = [
   {
     year: '2023',
     title: 'Started Freelance Development',
-    description: 'Built CycleZen e-commerce & Sarisabari service portal',
+    description: 'Built BiCycle Hub e-commerce & Sarisabari service portal',
     icon: '🚀',
     color: 'from-accent to-cyan-500'
   },
