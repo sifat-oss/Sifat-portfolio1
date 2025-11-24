@@ -83,14 +83,14 @@ Error generating stack: `+s.message+`
 ⚡ Rush Delivery
 🎨 Portfolio Examples
 
-What would you like to know?`;if(t.match(/who are you|about|tell me about|introduce|who is sifat|sifat|yourself|bio|background/))return`I'm ${O.name}, a ${O.role} from ${O.location}.
+What would you like to know?`;if(t.match(/who are you|about|tell me about|introduce|who is sifat|tell me about sifat|about sifat|yourself|bio|background/))return`I'm ${O.name}, a ${O.role} from ${O.location}.
 
 🎓 Education: ${O.education}
 💼 Currently: ${O.experience[0].title} at ${O.experience[0].company}
 
 I specialize in building full-stack web applications using the MERN stack. I've successfully delivered e-commerce platforms, mobile apps, and custom web solutions for clients.
 
-What else would you like to know?`;if(t.match(/skills|technologies|tech stack|what do you know|programming|languages|frameworks|tools|expertise|capable/))return`My technical expertise:
+What else would you like to know?`;if(t.match(/skills|what skills|your skills|what skills do you have|technologies|tech stack|what do you know|programming|languages|frameworks|tools|expertise|capable/))return`My technical expertise:
 
 💻 **Core Stack**:
 ${O.skills.slice(0,6).join(" • ")}
@@ -106,7 +106,7 @@ ${O.skills.slice(6).join(" • ")}
 • Database design & optimization
 • Payment gateway integration
 
-I can build scalable, modern web applications from scratch!`;if(t.match(/projects|portfolio|work|built|developed|created|made|examples|showcase/))return`Here are my featured projects:
+I can build scalable, modern web applications from scratch!`;if(t.match(/projects|show projects|show me projects|show me your projects|your projects|portfolio|work|built|developed|created|made|examples|showcase/))return`Here are my featured projects:
 
 ${O.projects.map((r,i)=>`${i+1}. ${r.name}
    ${r.description}
@@ -161,7 +161,7 @@ I also work on freelance web development projects, specializing in:
 • Custom web applications
 • Mobile apps
 
-I'm available for both full-time opportunities and freelance work!`}return t.match(/education|university|study|degree|cgpa|college|academic|qualification/)?`🎓 **Education**:
+I'm available for both full-time opportunities and freelance work!`}return t.match(/education|university|study|where did you study|where study|studied where|degree|cgpa|college|academic|qualification/)?`🎓 **Education**:
 
 • ${O.education}
 • HSC: GPA 4.67
@@ -485,14 +485,48 @@ I can build something similar to what you have in mind! What type of project int
 • 3+ years MERN experience
 • Multiple successful projects
 
-You're not just hiring a coder - you're getting a committed tech partner! 🤝`:t.match(/contact|email|phone|reach|hire|available/)?`Let's discuss your project! Reach me at:
+You're not just hiring a coder - you're getting a committed tech partner! 🤝`:t.match(/available for hire|hiring|can i hire|job|opportunity|looking for work|open to work|freelance available/)?`✅ **I'm Available!**
 
-📧 Email: ${O.email}
+💼 **Open to**:
+• Full-time positions (MERN Stack Developer)
+• Freelance projects (all sizes)
+• Contract work
+• Long-term partnerships
+
+📍 **Work Mode**:
+• Remote (preferred)
+• On-site (Dhaka area)
+• Hybrid
+
+⚡ **Availability**:
+• Can start immediately
+• Flexible with timelines
+• Available 40+ hours/week
+
+💰 **Rates**:
+• Business websites: ৳50k-1L
+• E-commerce: ৳1.5L-3.5L
+• Custom apps: ৳2L-5L+
+• Hourly: ৳800-1000/hr
+
+📧 Contact: ${O.email}
 📱 Phone: ${O.phone}
-💼 LinkedIn: ${O.linkedin}
-🌐 Portfolio: ${O.portfolio}
 
-I respond within 2-4 hours during business hours. Available for freelance projects, full-time opportunities, and consultations. Fill out the contact form and I'll send you a detailed proposal within 24 hours! 🚀`:t.match(/education|university|study|degree|cgpa/)?`I completed my ${O.education}. I also have HSC with GPA 4.67 and SSC with GPA 4.89.`:t.match(/react|frontend/)?"Yes, I'm experienced with React.js! I've built multiple projects using React with features like state management, hooks, routing, and integration with REST APIs. I also use modern tools like Tailwind CSS and Framer Motion for styling and animations.":t.match(/node|backend|api/)?"Absolutely! I have strong backend skills with Node.js and Express.js. I've built RESTful APIs, implemented JWT authentication, worked with MongoDB databases, and handled real-time features using Socket.io.":t.match(/mongodb|database|db/)?"I work extensively with MongoDB for database management. I'm comfortable with schema design, queries, aggregation, indexing, and using Mongoose ODM for Node.js applications.":t.match(/available|hiring|job|opportunity|freelance/)?`Yes, I'm actively looking for opportunities! I'm open to full-time positions as a MERN Stack Developer or full-stack roles. I'm also available for freelance projects. Feel free to reach out at ${O.email}!`:t.match(/location|where|based|from/)?`I'm based in ${O.location}. I'm open to remote opportunities as well as on-site positions in Dhaka area.`:t.match(/thank|thanks|appreciate/)?"You're welcome! Feel free to ask if you have any other questions about Sifat's work or experience. Happy to help! 😊":t.match(/bye|goodbye|see you|talk later/)?`Goodbye! Thanks for your interest in Sifat's portfolio. Feel free to reach out anytime at ${O.email}. Have a great day! 👋`:`I can help you with:
+Let's build something amazing together! 🚀`:t.match(/github|git|code|repository|source code|social media|linkedin|link/)?`🔗 **Find Me Online**:
+
+👨‍💻 **GitHub**: ${O.github}
+   (View my code, projects, contributions)
+
+💼 **LinkedIn**: ${O.linkedin}
+   (Professional profile, experience)
+
+🌐 **Portfolio**: ${O.portfolio}
+   (Live projects, demos, testimonials)
+
+📧 **Email**: ${O.email}
+📱 **Phone**: ${O.phone}
+
+Feel free to explore my work and connect with me!`:t.match(/thank|thanks|appreciate/)?"You're welcome! Feel free to ask if you have any other questions about Sifat's work or experience. Happy to help! 😊":t.match(/bye|goodbye|see you|talk later/)?`Goodbye! Thanks for your interest in Sifat's portfolio. Feel free to reach out anytime at ${O.email}. Have a great day! 👋`:`I can help you with:
 
 💰 **Pricing**: "How much for a website?"
 ⏱️ **Timeline**: "How long does it take?"
