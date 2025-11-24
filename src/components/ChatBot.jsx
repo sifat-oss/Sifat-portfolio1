@@ -62,18 +62,18 @@ function generateResponse(message) {
     return `Hello! 👋 I'm Sifat's AI assistant. I can help you with:\n\n💰 Pricing & Costs\n⏱️ Project Timeline\n🚀 How to Get Started\n📋 What Information Needed\n💳 Payment Terms\n🔄 Revisions & Changes\n⚡ Rush Delivery\n🎨 Portfolio Examples\n\nWhat would you like to know?`
   }
   
-  // Who/About - EXPANDED
-  if (msg.match(/who are you|about|tell me about|introduce|who is sifat|sifat|yourself|bio|background/)) {
+  // Who/About - Tell me about Sifat
+  if (msg.match(/who are you|about|tell me about|introduce|who is sifat|tell me about sifat|about sifat|yourself|bio|background/)) {
     return `I'm ${KNOWLEDGE_BASE.name}, a ${KNOWLEDGE_BASE.role} from ${KNOWLEDGE_BASE.location}.\n\n🎓 Education: ${KNOWLEDGE_BASE.education}\n💼 Currently: ${KNOWLEDGE_BASE.experience[0].title} at ${KNOWLEDGE_BASE.experience[0].company}\n\nI specialize in building full-stack web applications using the MERN stack. I've successfully delivered e-commerce platforms, mobile apps, and custom web solutions for clients.\n\nWhat else would you like to know?`
   }
   
-  // Skills - EXPANDED
-  if (msg.match(/skills|technologies|tech stack|what do you know|programming|languages|frameworks|tools|expertise|capable/)) {
+  // Skills - What skills do you have?
+  if (msg.match(/skills|what skills|your skills|what skills do you have|technologies|tech stack|what do you know|programming|languages|frameworks|tools|expertise|capable/)) {
     return `My technical expertise:\n\n💻 **Core Stack**:\n${KNOWLEDGE_BASE.skills.slice(0, 6).join(' • ')}\n\n🛠️ **Additional**:\n${KNOWLEDGE_BASE.skills.slice(6).join(' • ')}\n\n✨ **Specialties**:\n• Full-stack MERN development\n• E-commerce platforms\n• Mobile app development (Flutter)\n• RESTful APIs & Authentication\n• Database design & optimization\n• Payment gateway integration\n\nI can build scalable, modern web applications from scratch!`
   }
   
-  // Projects - EXPANDED
-  if (msg.match(/projects|portfolio|work|built|developed|created|made|examples|showcase/)) {
+  // Projects - Show me your projects
+  if (msg.match(/projects|show projects|show me projects|show me your projects|your projects|portfolio|work|built|developed|created|made|examples|showcase/)) {
     const projectList = KNOWLEDGE_BASE.projects.map((p, i) => 
       `${i+1}. ${p.name}\n   ${p.description}\n   Tech: ${p.tech.slice(0, 4).join(', ')}`
     ).join('\n\n')
@@ -98,8 +98,8 @@ function generateResponse(message) {
     return `💼 **Current Position**:\n${exp.title}\n📍 ${exp.company}\n📅 ${exp.duration}\n\n🔧 Responsibilities:\n• ${exp.responsibilities}\n• Database management\n• Technical troubleshooting\n• Client communication\n\n🚀 **Freelance Projects**:\nI also work on freelance web development projects, specializing in:\n• E-commerce platforms\n• Business websites\n• Custom web applications\n• Mobile apps\n\nI'm available for both full-time opportunities and freelance work!`
   }
   
-  // Education
-  if (msg.match(/education|university|study|degree|cgpa|college|academic|qualification/)) {
+  // Education - Where did you study?
+  if (msg.match(/education|university|study|where did you study|where study|studied where|degree|cgpa|college|academic|qualification/)) {
     return `🎓 **Education**:\n\n• ${KNOWLEDGE_BASE.education}\n• HSC: GPA 4.67\n• SSC: GPA 4.89\n\n📚 **Relevant Coursework**:\n• Data Structures & Algorithms\n• Database Management Systems\n• Web Technologies\n• Software Engineering\n• Mobile App Development\n\nI combine academic knowledge with practical hands-on experience!`
   }
   
@@ -213,38 +213,14 @@ function generateResponse(message) {
     return `Here's why direct hire is better:\n\n💰 **Better Value**:\n• No platform fees (20-30%)\n• Direct communication\n• More invested in your success\n\n🎯 **Quality Difference**:\n• Platform freelancers: Quick gigs\n• Me: Long-term partnership focus\n• Detailed documentation\n• Post-launch support included\n\n⚡ **Speed & Flexibility**:\n• Quick response (2-4 hours)\n• Flexible payment terms\n• Custom solutions, not templates\n\n📞 **Accessibility**:\n• Direct phone/email contact\n• Video calls anytime\n• Local timezone (Bangladesh)\n\n🏆 **Track Record**:\n• DIU Software Engineering graduate\n• 3+ years MERN experience\n• Multiple successful projects\n\nYou're not just hiring a coder - you're getting a committed tech partner! 🤝`
   }
   
-  // Contact
-  if (msg.match(/contact|email|phone|reach|hire|available/)) {
-    return `Let's discuss your project! Reach me at:\n\n📧 Email: ${KNOWLEDGE_BASE.email}\n📱 Phone: ${KNOWLEDGE_BASE.phone}\n💼 LinkedIn: ${KNOWLEDGE_BASE.linkedin}\n🌐 Portfolio: ${KNOWLEDGE_BASE.portfolio}\n\nI respond within 2-4 hours during business hours. Available for freelance projects, full-time opportunities, and consultations. Fill out the contact form and I'll send you a detailed proposal within 24 hours! 🚀`
+  // Availability / Hiring
+  if (msg.match(/available for hire|hiring|can i hire|job|opportunity|looking for work|open to work|freelance available/)) {
+    return `✅ **I'm Available!**\n\n💼 **Open to**:\n• Full-time positions (MERN Stack Developer)\n• Freelance projects (all sizes)\n• Contract work\n• Long-term partnerships\n\n📍 **Work Mode**:\n• Remote (preferred)\n• On-site (Dhaka area)\n• Hybrid\n\n⚡ **Availability**:\n• Can start immediately\n• Flexible with timelines\n• Available 40+ hours/week\n\n💰 **Rates**:\n• Business websites: ৳50k-1L\n• E-commerce: ৳1.5L-3.5L\n• Custom apps: ৳2L-5L+\n• Hourly: ৳800-1000/hr\n\n📧 Contact: ${KNOWLEDGE_BASE.email}\n📱 Phone: ${KNOWLEDGE_BASE.phone}\n\nLet's build something amazing together! 🚀`
   }
   
-  // Education
-  if (msg.match(/education|university|study|degree|cgpa/)) {
-    return `I completed my ${KNOWLEDGE_BASE.education}. I also have HSC with GPA 4.67 and SSC with GPA 4.89.`
-  }
-  
-  // React/Node specific
-  if (msg.match(/react|frontend/)) {
-    return `Yes, I'm experienced with React.js! I've built multiple projects using React with features like state management, hooks, routing, and integration with REST APIs. I also use modern tools like Tailwind CSS and Framer Motion for styling and animations.`
-  }
-  
-  if (msg.match(/node|backend|api/)) {
-    return `Absolutely! I have strong backend skills with Node.js and Express.js. I've built RESTful APIs, implemented JWT authentication, worked with MongoDB databases, and handled real-time features using Socket.io.`
-  }
-  
-  // MongoDB/Database
-  if (msg.match(/mongodb|database|db/)) {
-    return `I work extensively with MongoDB for database management. I'm comfortable with schema design, queries, aggregation, indexing, and using Mongoose ODM for Node.js applications.`
-  }
-  
-  // Availability
-  if (msg.match(/available|hiring|job|opportunity|freelance/)) {
-    return `Yes, I'm actively looking for opportunities! I'm open to full-time positions as a MERN Stack Developer or full-stack roles. I'm also available for freelance projects. Feel free to reach out at ${KNOWLEDGE_BASE.email}!`
-  }
-  
-  // Location
-  if (msg.match(/location|where|based|from/)) {
-    return `I'm based in ${KNOWLEDGE_BASE.location}. I'm open to remote opportunities as well as on-site positions in Dhaka area.`
+  // GitHub / Social Links
+  if (msg.match(/github|git|code|repository|source code|social media|linkedin|link/)) {
+    return `🔗 **Find Me Online**:\n\n👨‍💻 **GitHub**: ${KNOWLEDGE_BASE.github}\n   (View my code, projects, contributions)\n\n💼 **LinkedIn**: ${KNOWLEDGE_BASE.linkedin}\n   (Professional profile, experience)\n\n🌐 **Portfolio**: ${KNOWLEDGE_BASE.portfolio}\n   (Live projects, demos, testimonials)\n\n📧 **Email**: ${KNOWLEDGE_BASE.email}\n📱 **Phone**: ${KNOWLEDGE_BASE.phone}\n\nFeel free to explore my work and connect with me!`
   }
   
   // Thanks
