@@ -237,6 +237,23 @@ export default function ChatBot() {
     scrollToBottom()
   }, [messages])
 
+  // Save conversation when closing chat
+  useEffect(() => {
+    if (!isOpen && messages.length > 1) {
+      try {
+        const convos = JSON.parse(localStorage.getItem('chatConversations') || '[]')
+        convos.push({
+          id: Date.now(),
+          timestamp: new Date().toISOString(),
+          messages: messages
+        })
+        localStorage.setItem('chatConversations', JSON.stringify(convos))
+      } catch (e) {
+        console.error('Failed to save conversation:', e)
+      }
+    }
+  }, [isOpen, messages])
+
   const handleSend = () => {
     if (!input.trim()) return
 

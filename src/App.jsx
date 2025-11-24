@@ -10,6 +10,7 @@ import ProjectDetail from './pages/ProjectDetail'
 import Contact from './pages/Contact'
 import Resume from './pages/Resume'
 import AdminMessages from './pages/AdminMessages'
+import ChatConversations from './pages/ChatConversations'
 
 export default function App(){
   return (
@@ -24,6 +25,7 @@ export default function App(){
           <Route path="/resume" element={<Resume/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/admin/messages" element={<AdminMessages/>} />
+          <Route path="/admin/conversations" element={<ChatConversations/>} />
         </Routes>
       </main>
       <Footer />
