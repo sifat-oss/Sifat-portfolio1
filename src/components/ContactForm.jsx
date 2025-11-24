@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 export default function ContactForm(){
   const [formData, setFormData] = useState({
@@ -20,49 +21,38 @@ export default function ContactForm(){
     setIsSubmitting(true)
     
     try {
-      // Send to EmailJS
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      // Send email using EmailJS SDK
+      await emailjs.send(
+        'service_gezqkli',    // Service ID
+        '19je095',             // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'mdsifatss79@gmail.com'
         },
-        body: JSON.stringify({
-          service_id: 'service_gezqkli',
-          template_id: '19je095',
-          user_id: 'WyNeBbSvohX6vVjqM',
-          template_params: {
-            from_name: formData.name,
-            from_email: formData.email,
-            subject: formData.subject,
-            message: formData.message
-          }
-        })
-      })
+        'WyNeBbSvohX6vVjqM'   // Public Key
+      )
 
-      const result = await response.text()
+      // Save to local storage as backup
+      const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
+      submissions.push({
+        ...formData,
+        timestamp: new Date().toISOString(),
+        id: Date.now(),
+        status: 'sent'
+      })
+      localStorage.setItem('contactSubmissions', JSON.stringify(submissions))
       
-      if (response.ok) {
-        // Save to local storage as backup
-        const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
-        submissions.push({
-          ...formData,
-          timestamp: new Date().toISOString(),
-          id: Date.now(),
-          status: 'sent'
-        })
-        localStorage.setItem('contactSubmissions', JSON.stringify(submissions))
-        
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', subject: '', message: '' })
-        
-        // Show success for 5 seconds
-        setTimeout(() => setSubmitStatus(null), 5000)
-      } else {
-        console.error('EmailJS Error:', result)
-        throw new Error(`EmailJS failed: ${result}`)
-      }
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+      
+      // Show success for 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000)
+      
     } catch (error) {
-      console.error('Error sending message:', error)
+      console.error('EmailJS Error:', error)
       
       // Save to localStorage as backup
       const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]')
@@ -70,12 +60,13 @@ export default function ContactForm(){
         ...formData,
         timestamp: new Date().toISOString(),
         id: Date.now(),
-        status: 'failed'
+        status: 'failed',
+        error: error.text || error.message
       })
       localStorage.setItem('contactSubmissions', JSON.stringify(submissions))
       
       setSubmitStatus('error')
-      alert('Failed to send message. Please check:\n1. Your EmailJS template is set up correctly\n2. Template ID matches: 19je095\n3. Service ID matches: service_gezqkli\n\nYour message was saved locally. You can view it in Admin Messages.')
+      alert(`Failed to send message: ${error.text || error.message}\n\nPlease check your EmailJS dashboard:\n- Service ID: service_gezqkli\n- Template ID: 19je095\n- Public Key: WyNeBbSvohX6vVjqM\n\nYour message was saved locally in Admin Messages.`)
     } finally {
       setIsSubmitting(false)
     }
