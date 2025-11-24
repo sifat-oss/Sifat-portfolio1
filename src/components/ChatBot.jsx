@@ -137,6 +137,41 @@ function generateResponse(message) {
     return `I build with the modern MERN stack:\n\n🎨 **Frontend**:\n• React.js (with Hooks & Context)\n• Tailwind CSS (responsive design)\n• Framer Motion (animations)\n• TypeScript (type safety)\n\n⚙️ **Backend**:\n• Node.js & Express.js\n• MongoDB (scalable database)\n• JWT Authentication\n• REST APIs\n\n🚀 **Additional**:\n• Git version control\n• Deployment (Vercel, Netlify, AWS)\n• Payment: Stripe, bKash, SSLCommerz\n• Mobile: Flutter (if needed)\n\nThis stack ensures fast, scalable, and maintainable applications! 💪`
   }
   
+  // Project Scope & Requirements
+  if (msg.match(/what do you need|requirements|information|details needed|what to provide/)) {
+    return `To give you an accurate quote, I need:\n\n📋 **Project Details**:\n• Type of website (business, e-commerce, custom)\n• Number of pages/features\n• Design preferences (modern, minimal, colorful)\n• Reference websites (if any)\n\n🎯 **Functionality**:\n• User authentication needed?\n• Payment gateway integration?\n• Admin dashboard required?\n• Third-party API integrations?\n\n📅 **Timeline**:\n• Desired launch date\n• Any hard deadlines?\n\n💰 **Budget Range**: This helps me propose the best solution\n\nShare these details via the contact form or email, and I'll send you a detailed proposal within 24 hours! 📊`
+  }
+  
+  // Start a Project / Next Steps
+  if (msg.match(/start project|begin|let's start|ready to start|want to hire|how to begin/)) {
+    return `Excited to work with you! Here's how we'll start:\n\n✅ **Step 1: Initial Consultation** (Free)\n• Discuss your requirements\n• Understand your goals & vision\n• Answer all your questions\n\n✅ **Step 2: Proposal & Quote**\n• Detailed project scope\n• Exact pricing & timeline\n• Technology stack recommendation\n\n✅ **Step 3: Contract & Payment**\n• Sign agreement (protects both of us)\n• 30% advance payment to begin\n\n✅ **Step 4: Development Starts!**\n• Weekly progress updates\n• Demo after each milestone\n• Your feedback incorporated\n\n📧 Fill out the contact form or email me at ${KNOWLEDGE_BASE.email} to schedule a free consultation call! Let's build something amazing! 🚀`
+  }
+  
+  // Revisions & Changes
+  if (msg.match(/revision|changes|modify|edit|update|redo/)) {
+    return `Revisions are part of the process! Here's my policy:\n\n🔄 **During Development**:\n• Unlimited minor revisions\n• 2 major design revisions included\n• Additional major changes: ৳5,000-15,000 each\n\n✅ **What's Included**:\n• Content updates\n• Color/font changes\n• Layout adjustments\n• Bug fixes (always free)\n\n⚠️ **Scope Changes**:\nIf you want to add new features not in original scope, I'll provide a separate quote. This keeps the project on track and budget!\n\nI want you to be 100% happy with the final product. Let's discuss your vision! 💯`
+  }
+  
+  // Rush/Urgent Projects
+  if (msg.match(/urgent|rush|quickly|fast|asap|emergency|immediate/)) {
+    return `Need it fast? I can help! ⚡\n\n🚀 **Rush Delivery Options**:\n• 30% faster: +30% of project cost\n• 50% faster: +50% of project cost\n• Express (1-2 weeks): +100% of project cost\n\n⏰ **What You Get**:\n• Priority in my schedule\n• Extended working hours\n• Daily progress updates\n• Weekend work if needed\n\n📅 **Example**:\nNormal e-commerce: 6 weeks at ৳2,00,000\nRush delivery: 3 weeks at ৳2,60,000\n\n⚠️ Quality never compromised! Just faster turnaround. Share your deadline and I'll create a custom rush plan! 💨`
+  }
+  
+  // Refund & Guarantee
+  if (msg.match(/refund|guarantee|money back|satisfaction|quality assurance/)) {
+    return `Your satisfaction is guaranteed! 💯\n\n✅ **My Guarantees**:\n• 100% functional code, no bugs\n• Responsive on all devices\n• Meets all agreed requirements\n• 30 days post-launch support\n• Source code ownership\n\n💰 **Refund Policy**:\n• Before development starts: 100% refund\n• After design phase: 50% refund\n• After 50% completion: No refund (but we'll fix everything until you're happy!)\n\n🛡️ **Protection**:\n• Signed contract protects both of us\n• Milestone-based payments reduce risk\n• Regular demos ensure alignment\n• Escrow payment available for international clients\n\nI'm committed to delivering quality work. Let's build trust through great results! 🤝`
+  }
+  
+  // Similar Projects / Portfolio Examples
+  if (msg.match(/similar project|portfolio|previous work|examples|sample|show me/)) {
+    return `I've built diverse projects! Here are some examples:\n\n🛒 **E-Commerce**:\n• CycleZen: Bicycle shop with cart, auth, admin panel\n• Sifat E-Commerce: Multi-vendor marketplace\n• Payment: Stripe, bKash, SSLCommerz integrated\n\n📱 **Mobile App**:\n• Sarisabari Tottho Seba: Local services app (Flutter)\n• Real-time maps, push notifications\n\n🎓 **Custom Platform**:\n• CampusCart: Student marketplace\n• Real-time chat (Socket.io)\n\nVisit my portfolio to see live demos and code: ${KNOWLEDGE_BASE.portfolio}\n\nI can build something similar to what you have in mind! What type of project interests you? 🎨`
+  }
+  
+  // Competitor Comparison
+  if (msg.match(/compared to|versus|better than|other developers|why not freelancer|upwork|fiverr/)) {
+    return `Here's why direct hire is better:\n\n💰 **Better Value**:\n• No platform fees (20-30%)\n• Direct communication\n• More invested in your success\n\n🎯 **Quality Difference**:\n• Platform freelancers: Quick gigs\n• Me: Long-term partnership focus\n• Detailed documentation\n• Post-launch support included\n\n⚡ **Speed & Flexibility**:\n• Quick response (2-4 hours)\n• Flexible payment terms\n• Custom solutions, not templates\n\n📞 **Accessibility**:\n• Direct phone/email contact\n• Video calls anytime\n• Local timezone (Bangladesh)\n\n🏆 **Track Record**:\n• DIU Software Engineering graduate\n• 3+ years MERN experience\n• Multiple successful projects\n\nYou're not just hiring a coder - you're getting a committed tech partner! 🤝`
+  }
+  
   // Contact
   if (msg.match(/contact|email|phone|reach|hire|available/)) {
     return `Let's discuss your project! Reach me at:\n\n📧 Email: ${KNOWLEDGE_BASE.email}\n📱 Phone: ${KNOWLEDGE_BASE.phone}\n💼 LinkedIn: ${KNOWLEDGE_BASE.linkedin}\n🌐 Portfolio: ${KNOWLEDGE_BASE.portfolio}\n\nI respond within 2-4 hours during business hours. Available for freelance projects, full-time opportunities, and consultations. Fill out the contact form and I'll send you a detailed proposal within 24 hours! 🚀`
