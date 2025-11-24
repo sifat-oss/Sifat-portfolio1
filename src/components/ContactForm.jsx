@@ -29,7 +29,7 @@ export default function ContactForm(){
       // Send email using EmailJS SDK
       const result = await emailjs.send(
         'service_gezqkli',    // Service ID
-        '19je095',             // Template ID
+        'template_e0wd6fp',   // Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -71,7 +71,7 @@ export default function ContactForm(){
       localStorage.setItem('contactSubmissions', JSON.stringify(submissions))
       
       setSubmitStatus('error')
-      alert(`Failed to send message: ${error.text || error.message}\n\nPlease check your EmailJS dashboard:\n- Service ID: service_gezqkli\n- Template ID: 19je095\n- Public Key: WyNeBbSvohX6vVjqM\n\nYour message was saved locally in Admin Messages.`)
+      alert(`Failed to send message: ${error.text || error.message}\n\nPlease check your EmailJS dashboard:\n- Service ID: service_gezqkli\n- Template ID: template_e0wd6fp\n- Public Key: WyNeBbSvohX6vVjqM\n\nYour message was saved locally in Admin Messages.`)
     } finally {
       setIsSubmitting(false)
     }
