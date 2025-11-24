@@ -82,7 +82,7 @@ export default function Contact(){
               <div className="text-3xl mb-3">🌐</div>
               <h3 className="text-lg font-bold text-white mb-2">Business Website</h3>
               <p className="text-white/70 text-sm mb-4">Professional portfolio, company website, or landing page</p>
-              <div className="text-accent font-bold text-xl">৳15,000 - ৳30,000</div>
+              <div className="text-accent font-bold text-xl">৳50,000 - ৳1,00,000</div>
               <div className="text-white/50 text-xs">Starting price</div>
             </div>
 
@@ -91,7 +91,7 @@ export default function Contact(){
               <div className="text-3xl mb-3">🛒</div>
               <h3 className="text-lg font-bold text-white mb-2">E-Commerce Site</h3>
               <p className="text-white/70 text-sm mb-4">Full online store with payment gateway & admin panel</p>
-              <div className="text-accent font-bold text-xl">৳40,000 - ৳80,000</div>
+              <div className="text-accent font-bold text-xl">৳1,50,000 - ৳3,50,000</div>
               <div className="text-white/50 text-xs">Starting price</div>
             </div>
 

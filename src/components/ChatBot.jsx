@@ -5,13 +5,21 @@ const KNOWLEDGE_BASE = {
   name: "Md Sifat Hossain",
   role: "MERN Stack Developer",
   education: "BSc in Software Engineering (CGPA: 3.25) from Daffodil International University",
-  email: "mdsifatss79@gmail.com",
-  phone: "+880 1609084651",
-  location: "Savar, Dhaka, Bangladesh",
+  email: "contactto9sifat@gmail.com",
+  phone: "+880 1964992612",
+  location: "Dhaka, Bangladesh",
   linkedin: "https://www.linkedin.com/in/md-sifat-hossain-4854a0244/",
   github: "https://github.com/sifat-oss",
+  portfolio: "https://sifat-oss.github.io/Sifat-portfolio1/",
   
   skills: ["React.js", "Node.js", "MongoDB", "Express.js", "JavaScript", "TypeScript", "Tailwind CSS", "REST API", "JWT", "Git", "Flutter", "Dart"],
+  
+  pricing: {
+    businessWebsite: { min: 50000, max: 100000, timeline: "2-4 weeks" },
+    ecommerce: { min: 150000, max: 350000, timeline: "4-8 weeks" },
+    customApp: { min: 200000, max: 500000, timeline: "6-12 weeks" },
+    hourlyRate: 2000
+  },
   
   projects: [
     {
@@ -89,9 +97,49 @@ function generateResponse(message) {
     return `I'm currently working as a ${exp.title} at ${exp.company} since 2023. My responsibilities include ${exp.responsibilities}.`
   }
   
+  // Pricing & Project Costs
+  if (msg.match(/price|cost|pricing|how much|budget|rate|charge|fee|payment/)) {
+    return `My project pricing depends on complexity and requirements:\n\n🌐 Business Website: ৳50,000 - ৳1,00,000 (2-4 weeks)\n• Portfolio, corporate site, landing pages\n• Responsive design, SEO optimized\n\n🛒 E-Commerce Platform: ৳1,50,000 - ৳3,50,000 (4-8 weeks)\n• Full online store with payment gateway\n• Admin dashboard, inventory management\n\n⚙️ Custom Web Application: ৳2,00,000 - ৳5,00,000+ (6-12 weeks)\n• Complex features, real-time functionality\n• API integrations, custom workflows\n\n💰 Hourly Rate: ৳2,000/hour\n\nFinal pricing is determined after understanding your specific needs. Let's discuss your project! Contact: ${KNOWLEDGE_BASE.email}`
+  }
+  
+  // Timeline & Delivery
+  if (msg.match(/timeline|time|duration|how long|when|delivery|deadline/)) {
+    return `Project timelines vary based on complexity:\n\n⏱️ Business Website: 2-4 weeks\n⏱️ E-Commerce: 4-8 weeks\n⏱️ Custom Application: 6-12 weeks\n\nI work in agile sprints with weekly updates. Rush delivery available for 30% extra. I provide regular demos and ensure timely delivery. Need it faster? Let's discuss your deadline! 🚀`
+  }
+  
+  // Features & What's Included
+  if (msg.match(/features|include|what do you provide|deliverables|scope/)) {
+    return `Every project includes:\n\n✅ Responsive design (mobile, tablet, desktop)\n✅ Modern UI/UX with smooth animations\n✅ SEO optimization & fast loading\n✅ Clean, maintainable code\n✅ Source code & documentation\n✅ 30 days post-launch support\n✅ Basic hosting setup guidance\n✅ Admin panel (for e-commerce/CMS)\n✅ Payment gateway integration (if needed)\n✅ Security best practices\n\nAdditional features can be added based on your requirements. What specific features do you need?`
+  }
+  
+  // Payment Terms
+  if (msg.match(/payment|deposit|advance|installment|how to pay|payment method/)) {
+    return `Payment terms are flexible and milestone-based:\n\n💳 Payment Structure:\n• 30% advance to start project\n• 40% after design approval\n• 30% on final delivery\n\n💰 Accepted Methods:\n• Bank transfer (bKash, Nagad, Rocket)\n• International: PayPal, Wise\n• Credit/Debit cards\n\nFor long-term projects, we can arrange monthly payments. All payments are invoice-based with proper documentation. Let's discuss what works best for you!`
+  }
+  
+  // Negotiation & Custom Quote
+  if (msg.match(/negotiate|discount|cheaper|reduce price|lower price|expensive|afford/)) {
+    return `I understand budget constraints! Here's how we can work together:\n\n💡 Options:\n1. **MVP Approach**: Start with core features, add more later\n2. **Phased Development**: Break project into smaller milestones\n3. **Long-term Partnership**: Better rates for ongoing work\n4. **Referral Discount**: 10% off if you refer another client\n\nFor startups and non-profits, I offer special rates. Share your budget and requirements - let's find a solution that works! Quality is important, but I'm flexible. Contact me: ${KNOWLEDGE_BASE.email}`
+  }
+  
+  // What Makes You Different
+  if (msg.match(/why hire you|why choose|what makes you|your advantage|better than/)) {
+    return `Here's why clients choose me:\n\n🏆 **Quality Code**: Clean, scalable, maintainable\n🚀 **Fast Delivery**: Agile workflow, weekly updates\n💬 **Clear Communication**: Daily updates, no surprises\n🎨 **Modern Design**: Beautiful UI that converts\n🔒 **Security First**: Best practices, secure coding\n📱 **Responsive Support**: Available for urgent fixes\n💰 **Transparent Pricing**: No hidden costs\n🎓 **Latest Tech**: Using cutting-edge MERN stack\n\nI don't just code - I build solutions that help your business grow. Let's create something amazing together! 🌟`
+  }
+  
+  // Maintenance & Support
+  if (msg.match(/maintenance|support|after launch|updates|bugs|fixes/)) {
+    return `Post-launch support is crucial! Here's what I offer:\n\n🛠️ **Included (30 days free)**:\n• Bug fixes & urgent issues\n• Minor content updates\n• Performance monitoring\n\n📦 **Monthly Maintenance** (optional):\n• ৳10,000/month: Basic support + updates\n• ৳20,000/month: Priority support + feature additions\n• ৳35,000/month: Dedicated support + monthly improvements\n\n✨ **One-time Updates**:\n• Small changes: ৳2,000-5,000\n• New features: Custom quote\n\nI'm committed to your long-term success. Your website will stay updated and secure! 🔐`
+  }
+  
+  // Technology Stack
+  if (msg.match(/technology|tech stack|stack|tools|framework/)) {
+    return `I build with the modern MERN stack:\n\n🎨 **Frontend**:\n• React.js (with Hooks & Context)\n• Tailwind CSS (responsive design)\n• Framer Motion (animations)\n• TypeScript (type safety)\n\n⚙️ **Backend**:\n• Node.js & Express.js\n• MongoDB (scalable database)\n• JWT Authentication\n• REST APIs\n\n🚀 **Additional**:\n• Git version control\n• Deployment (Vercel, Netlify, AWS)\n• Payment: Stripe, bKash, SSLCommerz\n• Mobile: Flutter (if needed)\n\nThis stack ensures fast, scalable, and maintainable applications! 💪`
+  }
+  
   // Contact
   if (msg.match(/contact|email|phone|reach|hire|available/)) {
-    return `You can reach me at:\n📧 Email: ${KNOWLEDGE_BASE.email}\n📱 Phone: ${KNOWLEDGE_BASE.phone}\n💼 LinkedIn: ${KNOWLEDGE_BASE.linkedin}\n\nI'm available for full-time opportunities and freelance projects!`
+    return `Let's discuss your project! Reach me at:\n\n📧 Email: ${KNOWLEDGE_BASE.email}\n📱 Phone: ${KNOWLEDGE_BASE.phone}\n💼 LinkedIn: ${KNOWLEDGE_BASE.linkedin}\n🌐 Portfolio: ${KNOWLEDGE_BASE.portfolio}\n\nI respond within 2-4 hours during business hours. Available for freelance projects, full-time opportunities, and consultations. Fill out the contact form and I'll send you a detailed proposal within 24 hours! 🚀`
   }
   
   // Education
